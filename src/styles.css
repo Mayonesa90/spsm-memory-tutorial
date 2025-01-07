@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    position: relative;
+    height: 100vh;
+    background-color: rgb(213, 213, 213);
+}
+
+button {
+    background-color: darkseagreen;
+    border: none;
+    padding: 15px 20px;
+    font-size: large;
+
+    &:hover {
+        background-color: rgb(101, 134, 101);
+        transform: scale(0.9);
+        cursor: pointer;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-back {
+    position: absolute;
+    left: 0;
+    font-size: small;
+}
