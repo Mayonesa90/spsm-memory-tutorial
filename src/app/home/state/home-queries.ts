@@ -11,7 +11,7 @@ export class NumOfCardsStateQueries {
   }
 
   @Selector([NumOfCardsState])
-  public static cardsArray$(state: INumOfCardsStateModel): number[] {
+  public static cardsArray$(state: INumOfCardsStateModel): string[] {
     return state.cardsArray;
   }
 }

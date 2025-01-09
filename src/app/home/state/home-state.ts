@@ -9,7 +9,7 @@ const stateToken: StateToken<INumOfCardsStateModel> = new StateToken<INumOfCards
   name: stateToken,
   defaults: {
     numOfCards: 4,
-    cardsArray: [0, 1, 2, 3]
+    cardsArray: ['hund', 'hund', 'katt', 'katt']
   },
 })
 
@@ -20,7 +20,17 @@ export class NumOfCardsState {
     {patchState}: StateContext<INumOfCardsStateModel>, 
     {numOfCards}: UpdateNumOfCards
   ) : void {
-    const updatedCardsArray = Array.from({length: numOfCards}, (_, index) => index);
-    patchState({numOfCards, cardsArray: updatedCardsArray});    
+    const animals = ['hund', 'katt', 'kanin', 'hamster'];
+    const pairs = numOfCards / 2;
+
+    const updatedCardsArray = []
+
+    for (let i = 0; i < pairs; i++) {
+      updatedCardsArray.push(animals[i % animals.length]);
+      updatedCardsArray.push(animals[i % animals.length]);
+    }
+    
+    patchState({numOfCards, cardsArray: updatedCardsArray});
+        
   }
 }

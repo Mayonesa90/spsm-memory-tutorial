@@ -30,7 +30,7 @@ import { NumOfCardsStateQueries } from '../home/state/home-queries';
 })
 export class PlayComponent implements OnInit {
   public numOfCards$!: Observable<number> ;
-  public cardsArray$!: Observable<number[]>;
+  public cardsArray$!: Observable<string[]>;
   public numOfCards: number = 4;
   public gridLayout: string = 'grid-cols-2';
 

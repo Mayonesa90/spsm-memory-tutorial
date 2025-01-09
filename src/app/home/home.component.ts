@@ -33,7 +33,7 @@ import {FormsModule} from '@angular/forms'
 export class HomeComponent implements OnInit {
   public numOfCards$!: Observable<number> ;
   public selectedNumOfCards: number = 4;
-  public cardsArray$!: Observable<number[]>
+  public cardsArray$!: Observable<string[]>
 
   constructor(private readonly store: Store){}
 
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
 
 
     public handleNumOfCardsChange(): void {
-      this.store.dispatch(new UpdateNumOfCards(this.selectedNumOfCards));
+      this.store.dispatch(new UpdateNumOfCards(this.selectedNumOfCards));      
     }
 
 }
