@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-card',
   imports: [],
   template: `
-    <p>
-      card works!
-    </p>
+    <div class=" w-40 h-40 bg-slate-500 rounded-md">
+
+    </div>
   `,
   styleUrl: './card.component.css'
 })
