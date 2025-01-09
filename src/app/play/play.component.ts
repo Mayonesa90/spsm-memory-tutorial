@@ -22,7 +22,7 @@ import { NumOfCardsStateQueries } from '../home/state/home-queries';
           [ngClass]="gridLayout"
           class="grid gap-2"
         >
-          <app-card *ngFor="let card of cardsArray$ | async"></app-card>
+          <app-card *ngFor="let card of cardsArray$ | async" [word]="card"></app-card>
       </section>
     </main>
   `,
