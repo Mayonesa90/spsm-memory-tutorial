@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { NumOfCardsStateQueries,  } from './state/home-queries';
 import { UpdateNumOfCards,  } from './state/home-actions';
 import {FormsModule} from '@angular/forms'
+import {ICard} from '../home/api/home-state-model'
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,7 @@ import {FormsModule} from '@angular/forms'
 export class HomeComponent implements OnInit {
   public numOfCards$!: Observable<number> ;
   public selectedNumOfCards: number = 4;
-  public cardsArray$!: Observable<string[]>
+  public cardsArray$!: Observable<ICard[]>
 
   constructor(private readonly store: Store){}
 
@@ -58,3 +59,7 @@ export class HomeComponent implements OnInit {
 
 }
 
+// interface card {
+//   id: number;
+//   word: string;
+// }

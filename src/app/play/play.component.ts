@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms'
 import { AsyncPipe } from '@angular/common';
 import { CardComponent } from '../card/card.component';
 import { NumOfCardsStateQueries } from '../home/state/home-queries';
+import { ICard } from '../home/api/home-state-model';
 
 @Component({
   selector: 'app-play',
@@ -22,7 +23,7 @@ import { NumOfCardsStateQueries } from '../home/state/home-queries';
           [ngClass]="gridLayout"
           class="grid gap-2"
         >
-          <app-card *ngFor="let card of cardsArray$ | async" [word]="card"></app-card>
+          <app-card *ngFor="let card of cardsArray$ | async" [card]="card"></app-card>
       </section>
     </main>
   `,
@@ -30,7 +31,7 @@ import { NumOfCardsStateQueries } from '../home/state/home-queries';
 })
 export class PlayComponent implements OnInit {
   public numOfCards$!: Observable<number> ;
-  public cardsArray$!: Observable<string[]>;
+  public cardsArray$!: Observable<ICard[]>;
   public numOfCards: number = 4;
   public gridLayout: string = 'grid-cols-2';
 
