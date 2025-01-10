@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NumOfCardsState } from './home/state/home-state';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async'
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -34,5 +35,6 @@ export const appConfig: ApplicationConfig = {
           disabled: false, // <-- Om du slår på detta så kommer det att synas i console.log, ett alternativ om plugin inte fungerar
         }),
       ),
+      provideAnimationsAsync()
     ],
   };
