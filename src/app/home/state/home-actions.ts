@@ -1,4 +1,4 @@
-import {ICard} from '../api/home-state-model'
+import {ICard, ISelectedCard} from '../api/home-state-model'
 
 export class UpdateNumOfCards {
   static readonly type: string = "[Home] Update NumOfCards";
@@ -9,7 +9,7 @@ export class UpdateNumOfCards {
 export class UpdateSelectedCards {
   static readonly type: string = "[Card] Update selectedCards";
   
-  constructor(public selectedCards: ICard[]) {}
+  constructor(public selectedCards: ISelectedCard[]) {}
 }
 
 export class UpdateMatchedCards {

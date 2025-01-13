@@ -44,6 +44,7 @@ export class CardComponent implements OnInit{
       this.selectedCards = selectedCards; // Sync with the state
     });
 
+    this.matchedCards$ = this.store.select(NumOfCardsStateQueries.matchedCards$);
     this.matchedCards$.subscribe((matchedCards) => {
       console.log('Matched cards: ', matchedCards);
       

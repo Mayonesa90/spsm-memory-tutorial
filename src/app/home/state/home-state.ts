@@ -50,11 +50,8 @@ export class NumOfCardsState {
     {patchState, getState}: StateContext<INumOfCardsStateModel>,
     {selectedCards}: UpdateSelectedCards
   ) : void {
-    // const flippedState = selectedCards.map(card => true)
     const state = getState()
-    // const flippedCards = [...state.flippedCards]
     selectedCards.forEach(card => {
-      // const index = state.cardsArray.findIndex((c)=> c.id === card.id);
       const existingCardIndex = state.selectedCards.findIndex(c => c.id === card.id);
       if (existingCardIndex !== -1) {
         state.selectedCards[existingCardIndex].isFlipped = true;
@@ -62,8 +59,6 @@ export class NumOfCardsState {
         state.selectedCards.push({ ...card, isFlipped: true });
       }
     })
-
-    console.log('Selected cards input:', selectedCards);
 
     patchState({
       selectedCards: [...state.selectedCards]
@@ -82,7 +77,6 @@ export class NumOfCardsState {
     patchState({
       matchedCards: [...state.matchedCards, ...matchedCards],
     })
-    console.log('Updated matchedCards in state:', matchedCards);
   }
 
   @Action(ClearSelectedCards)
@@ -90,10 +84,8 @@ export class NumOfCardsState {
     {patchState, getState} : StateContext<INumOfCardsStateModel>
   ) : void {
     const state = getState()
-    // const flippedCards = new Array(state.cardsArray.length).fill(false)
     patchState({
       selectedCards: [],
-      // flippedCards,
     })
     console.log('selected cards cleared');
   }
