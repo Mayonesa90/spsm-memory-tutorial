@@ -17,7 +17,6 @@ const stateToken: StateToken<INumOfCardsStateModel> = new StateToken<INumOfCards
     ],
     selectedCards: [],
     matchedCards: [],
-    flippedCards: [false, false, false, false],
   },
 })
 
@@ -42,7 +41,7 @@ export class NumOfCardsState {
     patchState({
       numOfCards, 
       cardsArray: updatedCardsArray,
-      flippedCards: new Array(updatedCardsArray.length).fill(false)
+      selectedCards: []
     });
   }
 
@@ -53,21 +52,23 @@ export class NumOfCardsState {
   ) : void {
     // const flippedState = selectedCards.map(card => true)
     const state = getState()
-    const flippedCards = [...state.flippedCards]
-    selectedCards.forEach((card) => {
-      const index = state.cardsArray.findIndex((c)=> c.id === card.id);
-      if (index !== -1) {
-        flippedCards[index] = true;
+    // const flippedCards = [...state.flippedCards]
+    selectedCards.forEach(card => {
+      // const index = state.cardsArray.findIndex((c)=> c.id === card.id);
+      const existingCardIndex = state.selectedCards.findIndex(c => c.id === card.id);
+      if (existingCardIndex !== -1) {
+        state.selectedCards[existingCardIndex].isFlipped = true;
+      } else {
+        state.selectedCards.push({ ...card, isFlipped: true });
       }
     })
 
-    console.log('Before patchState - flippedCards:', flippedCards);
     console.log('Selected cards input:', selectedCards);
+
     patchState({
-      selectedCards, 
-      flippedCards
+      selectedCards: [...state.selectedCards]
     })
-    console.log('Updated flippedCards:', flippedCards);
+
     console.log('Updated selectedCards:', selectedCards);
     
   }
@@ -89,10 +90,10 @@ export class NumOfCardsState {
     {patchState, getState} : StateContext<INumOfCardsStateModel>
   ) : void {
     const state = getState()
-    const flippedCards = new Array(state.cardsArray.length).fill(false)
+    // const flippedCards = new Array(state.cardsArray.length).fill(false)
     patchState({
       selectedCards: [],
-      flippedCards,
+      // flippedCards,
     })
     console.log('selected cards cleared');
   }

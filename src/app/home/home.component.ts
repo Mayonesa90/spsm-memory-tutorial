@@ -59,7 +59,3 @@ export class HomeComponent implements OnInit {
 
 }
 
-// interface card {
-//   id: number;
-//   word: string;
-// }

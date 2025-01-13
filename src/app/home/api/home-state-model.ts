@@ -1,12 +1,18 @@
 export interface INumOfCardsStateModel {
   numOfCards: number;
   cardsArray: ICard[];
-  selectedCards: ICard[]
+  selectedCards: ISelectedCard[]
   matchedCards: string[];
-  flippedCards: boolean[];
+  // flippedCards: boolean[];
 }
 
 export interface ICard {
   id: number;
   word: string;
+}
+
+export interface ISelectedCard {
+  id: number;
+  word: string;
+  isFlipped: boolean;
 }
